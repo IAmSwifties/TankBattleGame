@@ -159,7 +159,7 @@ public class GamePanel extends JFrame{
         }
 
     }
-    //1為不可破壞
+    //wallList1為不可破壞，wallList打代表可破壞
     public void addWalls(){
         if (state != 6){
             for (int i = 0; i < 14; i++){
@@ -187,20 +187,31 @@ public class GamePanel extends JFrame{
             wallList.add(new Wall("image/wall.png", 525, 870, this));
             wallList.add(new Wall("image/wall.png", 525, 930, this));*/
 
-            wallList.add(new Wall("image/upgrade wall.png", 430, 32, this));
+            //測試m_point出現的範圍
+            wallList.add(new Wall("image/upgrade wall.png", 430, 32, this));//為m_point出現的範圍
             wallList.add(new Wall("image/upgrade wall.png", 1215, 32, this));
-
             wallList.add(new Wall("image/upgrade wall.png", 430, 930, this));
             wallList.add(new Wall("image/upgrade wall.png", 1215, 930, this));
+            //the wall to protect base1
+            wallList.add(new Wall("image/wall.png", 10, 405, this));
+            wallList.add(new Wall("image/wall.png", 70, 405, this));
+            wallList.add(new Wall("image/wall.png", 70, 465, this));
+            wallList.add(new Wall("image/wall.png", 70, 525, this));
+            wallList.add(new Wall("image/wall.png", 10, 525, this));
+            //the wall to protect base2 
+            wallList.add(new Wall("image/wall.png", 1650, 405, this));
+            wallList.add(new Wall("image/wall.png", 1610, 405, this));
+            wallList.add(new Wall("image/wall.png", 1610, 465, this));
+            wallList.add(new Wall("image/wall.png", 1610, 525, this));
+            wallList.add(new Wall("image/wall.png", 1650, 525, this));
 
-            wallList1.add(new Wall("image/upgrade wall.png", 600, 930, this));
 
 
-            // addbase
+            // add base
             baseList1.clear();
             baseList2.clear();
-            baseList1.add(new Base("image/base1.png",465,32,this));
-            baseList2.add(new Base("image/base.png",465,930,this));
+            baseList1.add(new Base("image/base1.png",0,465,this));
+            baseList2.add(new Base("image/base.png",1640,465,this));
         }
     }
 
