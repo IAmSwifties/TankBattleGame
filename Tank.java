@@ -111,6 +111,7 @@ public class Tank extends GameObject{
 			running = false;
 		}
 	}
+	
 	//為了發射子彈須尋找坦克頭部位置
 	public Point getHeadPoint(){
 		switch (direction) {

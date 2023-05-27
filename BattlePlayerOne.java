@@ -3,6 +3,8 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class BattlePlayerOne extends Tank{
 
@@ -10,6 +12,8 @@ public class BattlePlayerOne extends Tank{
     private boolean left = false;
     private boolean right = false;
     private boolean down = false;
+
+    private Timer skillTimer;
 
     public BattlePlayerOne(String img, int x, int y, GamePanel gamePanel, String upImg, String leftImg, String rightImg,
             String downImg) {
@@ -29,6 +33,19 @@ public class BattlePlayerOne extends Tank{
 		}
 	}
 
+    public void skill(){
+        attackCoolDownTime = 100;
+        //attackRequest = true;
+        skillTimer = new Timer();
+        skillTimer.schedule(new TimerTask() {
+            @Override
+            public void run(){
+                attackCoolDownTime = 1000;
+                skillTimer.cancel();
+            }
+        }, 2500);
+    }
+
     public void keyPressed(KeyEvent e){
         int key = e.getKeyCode();
         switch (key) {
@@ -46,6 +63,9 @@ public class BattlePlayerOne extends Tank{
                 break;
             case KeyEvent.VK_F:
                 attack();
+                break;
+            case KeyEvent.VK_G:
+                skill();
                 break;
             default:
                 break;
