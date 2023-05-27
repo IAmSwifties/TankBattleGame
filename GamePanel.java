@@ -10,7 +10,8 @@ public class GamePanel extends JFrame{
     int height=610;
     //指針圖片
     Image select=Toolkit.getDefaultToolkit().getImage("image/tank2.png");
-    Image infintyBullet = Toolkit.getDefaultToolkit().getImage("image/skill/infintyBullet.png");
+    Image infintyBullet1 = Toolkit.getDefaultToolkit().getImage("image/skill/infintyBullet.png");
+    Image infintyBullet2 = Toolkit.getDefaultToolkit().getImage("image/skill/infintyBullet.png");
     //指針初始縱座標
     int y=165;
     //遊戲模式 0 遊戲未開始 1單人模式 2雙人模式 3遊戲暫停 4遊戲失敗 5遊戲勝利 6對戰模式 
@@ -281,9 +282,10 @@ public class GamePanel extends JFrame{
             gImage.setFont(new Font("仿宋",Font.BOLD,25));
             gImage.drawString("玩家一生命數: "+ battlePlayer1Lives, 7,53);
             gImage.drawString("積分: "+ battlePlayer1Point, 7, 88);
-            gImage.drawString("玩家二生命數: "+ battlePlayer2Lives, 7,950);
-            gImage.drawString("積分: "+ battlePlayer2Point, 7,985);
-            gImage.drawImage(infintyBullet, 800, 30, 40, 40, null);
+            gImage.drawString("玩家二生命數: "+ battlePlayer2Lives, 1500,53);
+            gImage.drawString("積分: "+ battlePlayer2Point, 1605,88);
+            gImage.drawImage(infintyBullet1, 200, 30, 40, 40, null);
+            gImage.drawImage(infintyBullet2, 1455, 30, 40, 40, null);
 
             // 重畫玩家
             for (Tank player: battleList1){

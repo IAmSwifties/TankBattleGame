@@ -44,7 +44,7 @@ public class BattlePlayerOne extends Tank{
             case KeyEvent.VK_W:
                 up = true;
                 break;
-            case KeyEvent.VK_SPACE:
+            case KeyEvent.VK_F:
                 attack();
                 break;
             default:
