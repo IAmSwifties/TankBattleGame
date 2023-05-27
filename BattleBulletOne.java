@@ -41,10 +41,10 @@ public class BattleBulletOne extends Bullet{
     public void relive(Tank player){
         deadPlayer = player;
         reliveTimer = new Timer();
-        deadPlayer.x = 465;
-        deadPlayer.y = 790;
-        deadPlayer.direction = Direction.UP;
-        deadPlayer.setImg(deadPlayer.upImg);
+        deadPlayer.x = 1470;
+        deadPlayer.y = 465;
+        deadPlayer.direction = Direction.LEFT;
+        deadPlayer.setImg(deadPlayer.leftImg);
         reliveTimer.schedule(new TimerTask() {
             @Override
             public void run() {
