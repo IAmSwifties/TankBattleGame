@@ -242,6 +242,16 @@ public class GamePanel extends JFrame{
             for(int i = 0; i < 5; i++){
                 wallList1.add(new Wall("image/upgrade wall.png", 1330, 345 + (i * 60), this));
             }
+            //the breakable wall in front of the base1
+            for(int i = 0; i < 7; i++){
+                wallList.add(new Wall("image/wall.png", 310, 345 - (i * 60), this));
+            }
+            for(int i = 0; i < 6; i++){
+                wallList.add(new Wall("image/wall.png", 310, 645 + (i * 60), this));
+            }
+            //the breakable wall in front of the base2
+
+            
             // add base
             baseList1.clear();
             baseList2.clear();
