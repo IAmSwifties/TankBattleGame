@@ -159,7 +159,7 @@ public class GamePanel extends JFrame{
         }
 
     }
-
+    //1¬°¤£¥i¯}Ãa
     public void addWalls(){
         if (state != 6){
             for (int i = 0; i < 14; i++){
