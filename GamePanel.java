@@ -37,9 +37,8 @@ public class GamePanel extends JFrame{
     // 技能相關
     WPoint temp;
 
-    private Timer skillTimer;  // 技能倒數計時器
-    private int skillCountdown;  // 技能倒數計時數值
-
+    int battlePlayer1SkillCDTime = 16000;
+    int battlePlayer2SkillCDTime = 16000;
 
 
 
@@ -79,11 +78,11 @@ public class GamePanel extends JFrame{
         "image/player2/p2tankU.png", "image/player2/p2tankL.png", 
         "image/player2/p2tankR.png", "image/player2/p2tankD.png");
 
-    BattlePlayerOne battlePlayerOne = new BattlePlayerOne("image/battle1/tankD.png", 465, 200, this,
+    BattlePlayerOne battlePlayerOne = new BattlePlayerOne("image/battle1/tankR.png", 190, 465, this,
         "image/battle1/tankU.png", "image/battle1/tankL.png", 
         "image/battle1/tankR.png", "image/battle1/tankD.png");
     
-    BattlePlayerTwo battlePlayerTwo = new BattlePlayerTwo("image/battle2/tankU.png", 465, 790, this,
+    BattlePlayerTwo battlePlayerTwo = new BattlePlayerTwo("image/battle2/tankL.png", 1470, 465, this,
         "image/battle2/tankU.png", "image/battle2/tankL.png", 
         "image/battle2/tankR.png", "image/battle2/tankD.png");
 
@@ -111,12 +110,6 @@ public class GamePanel extends JFrame{
         addWalls();
         //添加基地
         baseList.add(base);
-
-
-
-
-
-        
         //重畫
         while(true){
             //System.out.println(wallList.size());
@@ -282,7 +275,6 @@ public class GamePanel extends JFrame{
         gImage.setFont(new Font("仿宋",Font.BOLD,50));
         //state=0 未開始遊戲
         if(state==0){
-            
             //添加文字
             gImage.drawString("選擇遊戲模式", 220, 100);
             gImage.drawString("單人模式", 220, 200);
@@ -338,6 +330,7 @@ public class GamePanel extends JFrame{
             gImage.drawString("按B鍵回主畫面", 220, 300);
         }
         else if (state == 6){
+            gImage.setColor(Color.red);
             gImage.setFont(new Font("仿宋",Font.BOLD,25));
             gImage.drawString("玩家一生命數: "+ battlePlayer1Lives, 7,53);
             gImage.drawString("積分: "+ battlePlayer1Point, 7, 88);
@@ -345,6 +338,25 @@ public class GamePanel extends JFrame{
             gImage.drawString("積分: "+ battlePlayer2Point, 1605,88);
             gImage.drawImage(infintyBullet1, 200, 30, 40, 40, null);
             gImage.drawImage(infintyBullet2, 1455, 30, 40, 40, null);
+
+            if (!battlePlayerOne.skillRequest){
+                gImage.setColor(Color.green);
+                gImage.drawString(Integer.toString(battlePlayer1SkillCDTime / 1000), 205,68);
+                battlePlayer1SkillCDTime -= 25;
+                if (battlePlayer1SkillCDTime < 0){
+                    battlePlayer1SkillCDTime = 16000;
+                    battlePlayerOne.skillRequest = true;
+                }
+            }
+            if (!battlePlayerTwo.skillRequest){
+                gImage.setColor(Color.green);
+                gImage.drawString(Integer.toString(battlePlayer2SkillCDTime / 1000), 1462,68);
+                battlePlayer2SkillCDTime -= 25;
+                if (battlePlayer2SkillCDTime < 0){
+                    battlePlayer2SkillCDTime = 16000;
+                    battlePlayerTwo.skillRequest = true;
+                }
+            }
 
             // 重畫玩家
             for (Tank player: battleList1){
@@ -441,9 +453,10 @@ public class GamePanel extends JFrame{
                         else if (state == 6){
                             battleList1.add(battlePlayerOne);
                             battlePlayerOne.alive = true;
-                            battlePlayerOne.direction = Direction.DOWN; //預設是UP，要改成DOWN
+                            battlePlayerOne.direction = Direction.RIGHT; //預設是UP，要改成RIGHT
                             battleList2.add(battlePlayerTwo);
                             battlePlayerTwo.alive = true;
+                            battlePlayerOne.direction = Direction.LEFT;
                             wallList.clear();
                             addWalls();
                             // 調整視窗大小
@@ -519,14 +532,16 @@ public class GamePanel extends JFrame{
 
                         battlePlayer1Lives = 3;
                         battlePlayer2Lives = 3;
-                        battlePlayerOne.x = 465;
-                        battlePlayerOne.y = 200;
-                        battlePlayerOne.direction = Direction.DOWN;
-                        battlePlayerOne.setImg(battlePlayerOne.downImg);
-                        battlePlayerTwo.x = 465;
-                        battlePlayerTwo.y = 790;
-                        battlePlayerTwo.direction = Direction.UP;
-                        battlePlayerTwo.setImg(battlePlayerTwo.upImg);
+                        battlePlayerOne.alive = true;
+                        battlePlayerTwo.alive = true;
+                        battlePlayerOne.x = 190;
+                        battlePlayerOne.y = 465;
+                        battlePlayerOne.direction = Direction.RIGHT;
+                        battlePlayerOne.setImg(battlePlayerOne.rightImg);
+                        battlePlayerTwo.x = 1470;
+                        battlePlayerTwo.y = 465;
+                        battlePlayerTwo.direction = Direction.LEFT;
+                        battlePlayerTwo.setImg(battlePlayerTwo.leftImg);
                         // 調整視窗大小
                         width = 800;
                         height = 610;

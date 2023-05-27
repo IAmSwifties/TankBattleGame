@@ -13,8 +13,7 @@ public class BattlePlayerOne extends Tank{
     private boolean right = false;
     private boolean down = false;
 
-    private int skillCDTime = 15000;
-    private boolean skillRequest = true;
+    public boolean skillRequest = true;
     private Timer skillTimer;
 
 
@@ -45,16 +44,6 @@ public class BattlePlayerOne extends Tank{
                 @Override
                 public void run(){
                     attackCoolDownTime = 1000;
-
-                    Timer skillCDTimer = new Timer();
-                    skillCDTimer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            skillRequest = true;
-                            skillCDTimer.cancel();
-                        }
-                    }, skillCDTime);
-
                     skillTimer.cancel();
                 }
 
