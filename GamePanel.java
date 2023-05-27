@@ -34,8 +34,16 @@ public class GamePanel extends JFrame{
     int battlePlayer1Lives = 3;
     int battlePlayer2Lives = 3;
 
-
+    // 技能相關
     WPoint temp;
+
+    private Timer skillTimer;  // 技能倒數計時器
+    private int skillCountdown;  // 技能倒數計時數值
+
+
+
+
+
 
     // 子彈列表(方便繪製每個子彈)
     ArrayList<Bullet> bulletList = new ArrayList<Bullet>();
@@ -103,6 +111,12 @@ public class GamePanel extends JFrame{
         addWalls();
         //添加基地
         baseList.add(base);
+
+
+
+
+
+        
         //重畫
         while(true){
             //System.out.println(wallList.size());
@@ -188,10 +202,10 @@ public class GamePanel extends JFrame{
             wallList.add(new Wall("image/wall.png", 525, 930, this));*/
 
             //測試m_point出現的範圍
-            wallList.add(new Wall("image/upgrade wall.png", 430, 32, this));//為m_point出現的範圍
-            wallList.add(new Wall("image/upgrade wall.png", 1215, 32, this));
-            wallList.add(new Wall("image/upgrade wall.png", 430, 930, this));
-            wallList.add(new Wall("image/upgrade wall.png", 1215, 930, this));
+            wallList1.add(new Wall("image/upgrade wall.png", 430, 32, this));//為m_point出現的範圍
+            wallList1.add(new Wall("image/upgrade wall.png", 1215, 32, this));
+            wallList1.add(new Wall("image/upgrade wall.png", 430, 930, this));
+            wallList1.add(new Wall("image/upgrade wall.png", 1215, 930, this));
             //the wall to protect base1
             wallList.add(new Wall("image/wall.png", 10, 405, this));
             wallList.add(new Wall("image/wall.png", 70, 405, this));
