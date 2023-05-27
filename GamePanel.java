@@ -78,11 +78,11 @@ public class GamePanel extends JFrame{
         "image/player2/p2tankU.png", "image/player2/p2tankL.png", 
         "image/player2/p2tankR.png", "image/player2/p2tankD.png");
 
-    BattlePlayerOne battlePlayerOne = new BattlePlayerOne("image/battle1/tankD.png", 465, 200, this,
+    BattlePlayerOne battlePlayerOne = new BattlePlayerOne("image/battle1/tankR.png", 190, 465, this,
         "image/battle1/tankU.png", "image/battle1/tankL.png", 
         "image/battle1/tankR.png", "image/battle1/tankD.png");
     
-    BattlePlayerTwo battlePlayerTwo = new BattlePlayerTwo("image/battle2/tankU.png", 465, 790, this,
+    BattlePlayerTwo battlePlayerTwo = new BattlePlayerTwo("image/battle2/tankL.png", 1470, 465, this,
         "image/battle2/tankU.png", "image/battle2/tankL.png", 
         "image/battle2/tankR.png", "image/battle2/tankD.png");
 
@@ -443,9 +443,10 @@ public class GamePanel extends JFrame{
                         else if (state == 6){
                             battleList1.add(battlePlayerOne);
                             battlePlayerOne.alive = true;
-                            battlePlayerOne.direction = Direction.DOWN; //預設是UP，要改成DOWN
+                            battlePlayerOne.direction = Direction.RIGHT; //預設是UP，要改成RIGHT
                             battleList2.add(battlePlayerTwo);
                             battlePlayerTwo.alive = true;
+                            battlePlayerOne.direction = Direction.LEFT;
                             wallList.clear();
                             addWalls();
                             // 調整視窗大小
@@ -521,14 +522,16 @@ public class GamePanel extends JFrame{
 
                         battlePlayer1Lives = 3;
                         battlePlayer2Lives = 3;
-                        battlePlayerOne.x = 465;
-                        battlePlayerOne.y = 200;
-                        battlePlayerOne.direction = Direction.DOWN;
-                        battlePlayerOne.setImg(battlePlayerOne.downImg);
-                        battlePlayerTwo.x = 465;
-                        battlePlayerTwo.y = 790;
-                        battlePlayerTwo.direction = Direction.UP;
-                        battlePlayerTwo.setImg(battlePlayerTwo.upImg);
+                        battlePlayerOne.alive = true;
+                        battlePlayerTwo.alive = true;
+                        battlePlayerOne.x = 190;
+                        battlePlayerOne.y = 465;
+                        battlePlayerOne.direction = Direction.RIGHT;
+                        battlePlayerOne.setImg(battlePlayerOne.rightImg);
+                        battlePlayerTwo.x = 1470;
+                        battlePlayerTwo.y = 465;
+                        battlePlayerTwo.direction = Direction.LEFT;
+                        battlePlayerTwo.setImg(battlePlayerTwo.leftImg);
                         // 調整視窗大小
                         width = 800;
                         height = 610;
