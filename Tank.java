@@ -126,10 +126,18 @@ public class Tank extends GameObject{
 		}
 		return null;
 	}
+
 	//»P³òÀð¸I¼²ÀË´ú
 	public boolean hitWall(int x, int y){
 		ArrayList<Wall> walls = this.gamePanel.wallList;
 		Rectangle next = new Rectangle(x, y, width, height);
+		for (Wall wall: walls){
+			if (next.intersects(wall.getRect())){//¸I¼²ÀË´ú
+				return true;
+			}
+		}
+		 walls = this.gamePanel.wallList1;
+		next = new Rectangle(x, y, width, height);
 		for (Wall wall: walls){
 			if (next.intersects(wall.getRect())){//¸I¼²ÀË´ú
 				return true;
