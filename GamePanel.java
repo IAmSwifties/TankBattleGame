@@ -307,6 +307,9 @@ public class GamePanel extends JFrame{
             for (Wall wall: wallList){
                 wall.paintSelft(gImage);
             }
+            for (Wall wall: wallList1){
+                wall.paintSelft(gImage);
+            }
             // 重畫基地
             for (Base base: baseList1){
                 base.paintSelft(gImage);

@@ -13,7 +13,10 @@ public class BattlePlayerOne extends Tank{
     private boolean right = false;
     private boolean down = false;
 
+    private int skillCDTime = 15000;
+    private boolean skillRequest = true;
     private Timer skillTimer;
+
 
     public BattlePlayerOne(String img, int x, int y, GamePanel gamePanel, String upImg, String leftImg, String rightImg,
             String downImg) {
@@ -34,16 +37,30 @@ public class BattlePlayerOne extends Tank{
 	}
 
     public void skill(){
-        attackCoolDownTime = 100;
-        //attackRequest = true;
-        skillTimer = new Timer();
-        skillTimer.schedule(new TimerTask() {
-            @Override
-            public void run(){
-                attackCoolDownTime = 1000;
-                skillTimer.cancel();
-            }
-        }, 2500);
+        if (skillRequest && alive){
+            skillRequest = false;
+            attackCoolDownTime = 100;
+            skillTimer = new Timer();
+            skillTimer.schedule(new TimerTask() {
+                @Override
+                public void run(){
+                    attackCoolDownTime = 1000;
+
+                    Timer skillCDTimer = new Timer();
+                    skillCDTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            skillRequest = true;
+                            skillCDTimer.cancel();
+                        }
+                    }, skillCDTime);
+
+                    skillTimer.cancel();
+                }
+
+            }, 2500);
+        }
+        
     }
 
     public void keyPressed(KeyEvent e){
