@@ -179,26 +179,6 @@ public class GamePanel extends JFrame{
             wallList.add(new Wall("image/wall.png", 425, 560, this));
         }
         else{
-            /* 
-            wallList.add(new Wall("image/wall.png", 405, 32, this));
-            wallList.add(new Wall("image/wall.png", 405, 92, this));
-            wallList.add(new Wall("image/wall.png", 465, 92, this));
-            wallList.add(new Wall("image/wall.png", 525, 92, this));
-            wallList.add(new Wall("image/wall.png", 525, 32, this));
-            for (int i = 0; i < 17; i++){
-                wallList.add(new Wall("image/wall.png", i * 60, 480, this));
-            }
-            wallList.add(new Wall("image/wall.png", 405, 930, this));
-            wallList.add(new Wall("image/wall.png", 405, 870, this));
-            wallList.add(new Wall("image/wall.png", 465, 870, this));
-            wallList.add(new Wall("image/wall.png", 525, 870, this));
-            wallList.add(new Wall("image/wall.png", 525, 930, this));*/
-
-            //測試m_point出現的範圍
-            wallList1.add(new Wall("image/upgrade wall.png", 430, 32, this));//為m_point出現的範圍
-            wallList1.add(new Wall("image/upgrade wall.png", 1215, 32, this));
-            wallList1.add(new Wall("image/upgrade wall.png", 430, 930, this));
-            wallList1.add(new Wall("image/upgrade wall.png", 1215, 930, this));
             //the wall to protect base1
             wallList.add(new Wall("image/wall.png", 10, 405, this));
             wallList.add(new Wall("image/wall.png", 70, 405, this));
@@ -243,8 +223,28 @@ public class GamePanel extends JFrame{
                 wallList.add(new Wall("image/wall.png", 310, 645 + (i * 60), this));
             }
             //the breakable wall in front of the base2
-
+            for(int i = 0; i < 7; i++){
+                wallList.add(new Wall("image/wall.png", 1330, 345 - (i * 60), this));
+            }
+            for(int i = 0; i < 6; i++){
+                wallList.add(new Wall("image/wall.png", 1330, 645 + (i * 60), this));
+            }
+            //the unbreakable wall in the middle of the map
+            for(int i = 0; i < 6; i++){
+                wallList1.add(new Wall("image/upgrade wall.png", 850, 285 - (i * 60), this));
+            }
+            for(int i = 0; i < 5; i++){
+                wallList1.add(new Wall("image/upgrade wall.png", 850, 705 + (i * 60), this));
+            }
+            //the unbreakable wall in the left and right side
+            for(int i = 0; i < 7; i++){
+                wallList1.add(new Wall("image/upgrade wall.png", 580, 285 + (i * 60), this));
+            }
+            for(int i = 0; i < 7; i++){
+                wallList1.add(new Wall("image/upgrade wall.png", 1090, 285 + (i * 60), this));
+            }
             
+            //the 
             // add base
             baseList1.clear();
             baseList2.clear();
