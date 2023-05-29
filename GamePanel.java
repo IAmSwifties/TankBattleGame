@@ -254,16 +254,16 @@ public class GamePanel extends JFrame{
             for(int i = 0; i < 8; i++){
                 wallList.add(new Wall("image/wall.png", 1270 - (i * 60), 765, this));
             }
-            //
-            for(int i = 0; i < 2; i++){
-                wallList.add(new Wall("image/wall.png", 500 + (i * 60), 458, this));
-            }
+            
+             for(int i = 0; i < 1; i++){
+                 wallList.add(new Wall("image/wall.png", 520 , 458, this));
+             }
             for(int i = 0; i < 2; i++){
                 wallList.add(new Wall("image/wall.png", 1130 + (i * 60), 458, this));
             }
-            //
+            //line 5 6
             for(int i = 0; i < 10; i++){
-                wallList.add(new Wall("image/wall.png", 450, 165+ (i * 60), this));
+                wallList.add(new Wall("image/wall.png", 460, 165+ (i * 60), this));
             }
             for(int i = 0; i < 10; i++){
                 wallList.add(new Wall("image/wall.png", 1213, 165+ (i * 60), this));
@@ -276,7 +276,7 @@ public class GamePanel extends JFrame{
                 wallList.add(new Wall("image/wall.png", 1270 - (i * 60), 165, this));
             }
 
-            //
+            //line 7 8 9 10
             for(int i = 0; i < 4; i++){
                 wallList.add(new Wall("image/wall.png", 710, 165 + (i * 60), this));
             }
@@ -289,18 +289,21 @@ public class GamePanel extends JFrame{
             for(int i = 0; i < 3; i++){
                 wallList.add(new Wall("image/wall.png",955, 592 + (i * 60), this));
             }
+            //line 14 11
             for(int i = 0; i < 2; i++){
                 wallList.add(new Wall("image/wall.png",618 + (i * 60), 345 , this));
             }
             for(int i = 0; i < 2; i++){
                 wallList.add(new Wall("image/wall.png",970 + (i * 60), 345 , this));
             }
+            //line 12 13
             for(int i = 0; i < 2; i++){
                 wallList.add(new Wall("image/wall.png",615 + (i * 60), 592 , this));
             }
             for(int i = 0; i < 2; i++){
                 wallList.add(new Wall("image/wall.png",970 + (i * 60), 592 , this));
             }
+            //the unbreakable wall in the top and bottom side
             for(int i = 0; i < 3; i++){
                 wallList1.add(new Wall("image/upgrade wall.png",580 , 825 + (i * 60) , this));
             }
@@ -602,6 +605,8 @@ public class GamePanel extends JFrame{
                         playerTwo.setImg(playerTwo.upImg);
 
 
+                        battlePlayer1Point = 0;
+                        battlePlayer2Point = 0;
                         battlePlayer1Lives = 3;
                         battlePlayer2Lives = 3;
                         battlePlayerOne.alive = true;
