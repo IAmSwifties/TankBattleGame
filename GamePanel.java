@@ -12,6 +12,9 @@ public class GamePanel extends JFrame{
     Image select=Toolkit.getDefaultToolkit().getImage("image/tank2.png");
     Image infintyBullet1 = Toolkit.getDefaultToolkit().getImage("image/skill/infintyBullet.png");
     Image infintyBullet2 = Toolkit.getDefaultToolkit().getImage("image/skill/infintyBullet.png");
+    Image gojo = Toolkit.getDefaultToolkit().getImage("image/five gojo.jpg");
+    Image sokuna = Toolkit.getDefaultToolkit().getImage("image/five sokuna.jpg");
+
     //指針初始縱座標
     int y=165;
     //遊戲模式 0 遊戲未開始 1單人模式 2雙人模式 3遊戲暫停 4遊戲失敗 5遊戲勝利 6對戰模式 
@@ -231,11 +234,12 @@ public class GamePanel extends JFrame{
             }
             //the unbreakable wall in the middle of the map
             for(int i = 0; i < 6; i++){
-                wallList1.add(new Wall("image/upgrade wall.png", 850, 285 - (i * 60), this));
+                wallList1.add(new Wall("image/upgrade wall.png", 830, 285 - (i * 60), this));
             }
             for(int i = 0; i < 5; i++){
-                wallList1.add(new Wall("image/upgrade wall.png", 850, 705 + (i * 60), this));
+                wallList1.add(new Wall("image/upgrade wall.png", 830, 705 + (i * 60), this));
             }
+
             //the unbreakable wall in the left and right side
             for(int i = 0; i < 7; i++){
                 wallList1.add(new Wall("image/upgrade wall.png", 580, 285 + (i * 60), this));
@@ -244,6 +248,72 @@ public class GamePanel extends JFrame{
                 wallList1.add(new Wall("image/upgrade wall.png", 1090, 285 + (i * 60), this));
             }
             //the breakable 
+            for(int i = 0; i < 8; i++){
+                wallList.add(new Wall("image/wall.png", 370 + (i * 60), 765, this));
+            }
+            for(int i = 0; i < 8; i++){
+                wallList.add(new Wall("image/wall.png", 1270 - (i * 60), 765, this));
+            }
+            //
+            for(int i = 0; i < 2; i++){
+                wallList.add(new Wall("image/wall.png", 500 + (i * 60), 458, this));
+            }
+            for(int i = 0; i < 2; i++){
+                wallList.add(new Wall("image/wall.png", 1130 + (i * 60), 458, this));
+            }
+            //
+            for(int i = 0; i < 10; i++){
+                wallList.add(new Wall("image/wall.png", 450, 165+ (i * 60), this));
+            }
+            for(int i = 0; i < 10; i++){
+                wallList.add(new Wall("image/wall.png", 1213, 165+ (i * 60), this));
+            }
+            //the breakable wall 
+            for(int i = 0; i < 8; i++){
+                wallList.add(new Wall("image/wall.png", 370 + (i * 60), 165, this));
+            }
+            for(int i = 0; i < 8; i++){
+                wallList.add(new Wall("image/wall.png", 1270 - (i * 60), 165, this));
+            }
+
+            //
+            for(int i = 0; i < 4; i++){
+                wallList.add(new Wall("image/wall.png", 710, 165 + (i * 60), this));
+            }
+            for(int i = 0; i < 4; i++){
+                wallList.add(new Wall("image/wall.png",955, 165 + (i * 60), this));
+            }
+            for(int i = 0; i < 3; i++){
+                wallList.add(new Wall("image/wall.png", 710, 592 + (i * 60), this));
+            }
+            for(int i = 0; i < 3; i++){
+                wallList.add(new Wall("image/wall.png",955, 592 + (i * 60), this));
+            }
+            for(int i = 0; i < 2; i++){
+                wallList.add(new Wall("image/wall.png",618 + (i * 60), 345 , this));
+            }
+            for(int i = 0; i < 2; i++){
+                wallList.add(new Wall("image/wall.png",970 + (i * 60), 345 , this));
+            }
+            for(int i = 0; i < 2; i++){
+                wallList.add(new Wall("image/wall.png",615 + (i * 60), 592 , this));
+            }
+            for(int i = 0; i < 2; i++){
+                wallList.add(new Wall("image/wall.png",970 + (i * 60), 592 , this));
+            }
+            for(int i = 0; i < 3; i++){
+                wallList1.add(new Wall("image/upgrade wall.png",580 , 825 + (i * 60) , this));
+            }
+            for(int i = 0; i < 3; i++){
+                wallList1.add(new Wall("image/upgrade wall.png",1090 , 825 + (i * 60) , this));
+            }
+            for(int i = 0; i < 3; i++){
+                wallList1.add(new Wall("image/upgrade wall.png",580 , 5 + (i * 50) , this));
+            }
+            for(int i = 0; i < 3; i++){
+                wallList1.add(new Wall("image/upgrade wall.png",1090 , 5 + (i * 50) , this));
+            }
+
             // add base
             baseList1.clear();
             baseList2.clear();
@@ -337,6 +407,9 @@ public class GamePanel extends JFrame{
             gImage.drawString("積分: "+ battlePlayer2Point, 1605,88);
             gImage.drawImage(infintyBullet1, 200, 30, 40, 40, null);
             gImage.drawImage(infintyBullet2, 1455, 30, 40, 40, null);
+
+            gImage.drawImage(gojo, 60, 780, 160, 200, null);
+            gImage.drawImage(sokuna, 1480, 780, 160, 200, null);
 
             if (!battlePlayerOne.skillRequest){
                 gImage.setColor(Color.green);
@@ -455,7 +528,7 @@ public class GamePanel extends JFrame{
                             battlePlayerOne.direction = Direction.RIGHT; //預設是UP，要改成RIGHT
                             battleList2.add(battlePlayerTwo);
                             battlePlayerTwo.alive = true;
-                            battlePlayerOne.direction = Direction.LEFT;
+                            battlePlayerTwo.direction = Direction.LEFT;
                             wallList.clear();
                             addWalls();
                             // 調整視窗大小
