@@ -1,5 +1,59 @@
 # Java坦克大戰
 
+## 使用方法
+1. 確認已安裝 Java JDK 8 或以上版本。
+
+2. 下載並解壓縮專案資料夾 TankBattleGame-main。
+
+3. 使用以下任一方式執行遊戲：
+
+### 方法一：使用 IDE (Eclipse / IntelliJ IDEA / VS Code)
+
+1. 將專案匯入 IDE。
+
+2. 找到並開啟 GamePanel.java。
+
+3. 執行 main 方法即可啟動遊戲。
+
+### 方法二：使用命令列 (Command Line)
+
+1. 進入專案的 src 目錄，例如：
+```cd TankBattleGame-main/src```
+
+2. 編譯程式：
+```javac *.java```
+
+3. 執行主程式：
+```java GamePanel```
+
+## Game Startup Instructions
+1. Make sure Java JDK 8 or later is installed on your system.
+
+2. Download and extract the project folder TankBattleGame-main.
+
+3. Run the game using one of the following methods:
+
+### Method 1: Using an IDE (Eclipse / IntelliJ IDEA / VS Code)
+
+1. Import the project into your IDE.
+
+2. Locate and open GamePanel.java.
+
+3. Run the main method to start the game.
+
+### Method 2: Using the Command Line
+
+1. Navigate to the src directory of the project, e.g.:
+```cd TankBattleGame-main/src```
+
+
+2. Compile the program:
+```javac *.java```
+
+
+3. Run the main class:
+```java GamePanel```
+
 ## 遊戲規則：
 1. 123鍵選擇模式(分別是單人模式、雙人模式、對戰模式)
 2. Enter鍵進入遊戲
